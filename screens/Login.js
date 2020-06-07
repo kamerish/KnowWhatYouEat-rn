@@ -6,19 +6,38 @@ import {
 	TouchableOpacity,
 	Text,
 	StatusBar,
-	Button,
+	ToastAndroid,
 } from "react-native";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { updateEmail, updatePassword, login, getUser } from "../actions/user";
-import Firebase from "../config/Firebase";
+import LinearGradient from 'react-native-linear-gradient';
 
 class Login extends React.Component {
+	state={
+		pass:""
+	}
+	
+	showToast = (value) => {
+		ToastAndroid.show(value + " !", ToastAndroid.LONG);
+	};
+
+	handlesignin = () => {
+		this.showToast("Signing in..Please Wait  ")
+		this.props.login()
+	}
+
 	render() {
 		return (
 			<>
 			<StatusBar backgroundColor="#D90429"></StatusBar>
-			<View style={{flex:1, backgroundColor:"white"}}>
+			<LinearGradient 
+			start={{x: 0, y: 0.25}}
+        end={{x: 1.5, y: 1}}
+		locations={[0, 0.5, 0.7]}
+		style={{flex:1}}
+        colors={['#FFA69E','#AED9E0' ]}>
+			<View style={{flex:1,}}>
 				<View style={styles.topbar}>
 					<Text style={{ fontSize: 36, color: "#D90429", marginTop: 10 }}>
 						KnowWhatYouEat
@@ -44,17 +63,20 @@ class Login extends React.Component {
 						/>
 						<TextInput
 							style={styles.inputBox}
-							value={this.props.user.password}
-							onChangeText={(password) => this.props.updatePassword(password)}
+							value={this.state.pass}
+							onChangeText={(password) => {
+								this.setState({pass:password})
+								this.props.updatePassword(password)}}
 							placeholder="Password"
 							secureTextEntry={true}
 						/>
 						<TouchableOpacity
 							style={styles.button}
-							onPress={() => this.props.login()}
+							onPress={()=>this.handlesignin()}
 						>
 							<Text style={styles.buttonText}>Login</Text>
 						</TouchableOpacity>
+						
 					</View>
 				</View>
 				<View style={styles.bottom}>
@@ -67,6 +89,7 @@ class Login extends React.Component {
 					</TouchableOpacity>
 				</View>
 			</View>
+			</LinearGradient>
 			</>
 		);
 	}
@@ -76,14 +99,13 @@ const styles = StyleSheet.create({
 	topbar: {
 		justifyContent: "center",
 		alignSelf: "center",
-		backgroundColor: "white",
+		
 	},
 	container: {
 		flex: 10,
-		backgroundColor: "#fff",
 		alignItems: "center",
 		justifyContent: "center",
-		backgroundColor: "white",
+		
 	},
 	inputBox: {
 		width: 300,
@@ -130,14 +152,13 @@ const styles = StyleSheet.create({
 	},
 	bottom: {
 		flex: 1,
-		backgroundColor: "white",
 		justifyContent: "center",
 	},
 });
 
 const mapDispatchToProps = (dispatch) => {
 	return bindActionCreators(
-		{ updateEmail, updatePassword, login, getUser },
+		{ updateEmail, updatePassword, login, getUser},
 		dispatch
 	);
 };

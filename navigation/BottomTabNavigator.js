@@ -21,8 +21,8 @@ export default function Dtab1(){
   return(
   <BottomTab.Navigator 
   swipeEnabled="true" 
-  tabBarPosition="bottom" 
-  sceneContainerStyle={{backgroundColor:"black",}} 
+  tabBarPosition="top" 
+  sceneContainerStyle={{backgroundColor:"#F1FAEE",}} 
   tabBarOptions={{bounces:true,showIcon:true,tabStyle:{backgroundColor:"#E63946",height:50,padding:10 },labelStyle:{textTransform:"none",fontSize:16,margin:0,color:"white"}, pressOpacity:100,pressColor:"black",  }}  >
         <BottomTab.Screen 
         name="Search" 

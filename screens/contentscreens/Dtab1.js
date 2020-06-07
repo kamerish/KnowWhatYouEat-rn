@@ -5,6 +5,7 @@ import {Appbar} from 'react-native-paper';
 import {DrawerActions} from '@react-navigation/drawer'
 import { useNavigation } from '@react-navigation/native';
 
+const themecolour = "#A8DADC"
 
 function Rendermycustomappbar(props){
     
@@ -27,9 +28,9 @@ export default function Dtab1({navigation}){
    // const navigation = useNavigation();
     return(
         <>
-        <StatusBar backgroundColor="#E63946"/>
+        <StatusBar backgroundColor={themecolour} />
         <View>
-        <Appbar children={<Rendermycustomappbar {...navigation}/>}  style={{backgroundColor:"#E63946",height:50}}/>
+        <Appbar children={<Rendermycustomappbar {...navigation}/>}  style={{backgroundColor:themecolour,height:50}}/>
         </View>
             <BottomTab />
         </>

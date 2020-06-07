@@ -23,7 +23,7 @@ export default class App extends React.Component {
 			
 			<Provider store={store}>
 				<PaperProvider theme={DarkTheme } >
-				<SwitchNavigator />
+				<SwitchNavigator  />
 				</PaperProvider>
 			</Provider>
 		)
