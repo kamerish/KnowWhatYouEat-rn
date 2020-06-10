@@ -9,7 +9,7 @@ import {
 
 import {SearchBar} from 'react-native-elements';
 
-import Data from '../../FoodAdditives/foodAdditiveNumbers.json';
+import Data from '../../FoodAdditives/foodAdditiveNumbers';
 import MyCustomcard from '../../components/mainLogic';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
@@ -40,15 +40,24 @@ class MySearchBar extends React.Component {
   };
 
   findadditive = (val) => {
+    console.log(val);
     let out = Data.items.find((it) => it['eNumber'] == val);
+    
     if (out) {
       this.updatehistory(out);
     } else {
+      let out2 = Data.items.find((it) => it['additiveName'].toLocaleLowerCase() == val.toLocaleLowerCase());
+      console.log(out2)
+      if(out2)
+      {
+        this.updatehistory(out2);
+      } else {
       alert(
         'The item ' +
           val +
           ' is not available in our Database. We are constantly Updating it.Thanks ..',
       );
+      }
     }
   };
 
@@ -57,6 +66,7 @@ class MySearchBar extends React.Component {
     return (
       <SearchBar
         placeholder="Search for Additives Here..."
+        placeholderTextColor="white"
         onChangeText={this.updateSearch}
         value={search}
         clearIcon={() => {
@@ -77,7 +87,7 @@ class MySearchBar extends React.Component {
           fontWeight: 'bold',
           color: 'black',
         }}
-        containerStyle={{borderRadius: 30, margin: 10, padding: 0,backgroundColor: '#B8B8B7',}}
+        containerStyle={{borderRadius: 30, margin: 10, padding: 0,backgroundColor: '#B8B8B7',opacity:0.9}}
         inputContainerStyle={{borderRadius: 20, }}
         onSubmitEditing={() => {
           if (this.state.search.trim()) {
@@ -88,6 +98,7 @@ class MySearchBar extends React.Component {
         onFocus={() => {
           this.updateSearch('');
         }}
+        autoCorrect={false}
         searchIcon={() => {
           return (
             <TouchableOpacity>

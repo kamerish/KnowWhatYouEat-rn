@@ -6,7 +6,6 @@ import {View,Text,Image} from 'react-native'
 const BottomTab = createMaterialTopTabNavigator();
 import Btab1 from '../screens/contentscreens/Btab1';
 import Btab2 from '../screens/contentscreens/Btab2';
-
 const config = {
     stiffness: 500,
     damping: 50,
@@ -23,7 +22,13 @@ export default function Dtab1(){
   swipeEnabled="true" 
   tabBarPosition="top" 
   sceneContainerStyle={{backgroundColor:"#F1FAEE",}} 
-  tabBarOptions={{bounces:true,showIcon:true,tabStyle:{backgroundColor:"#E63946",height:50,padding:10 },labelStyle:{textTransform:"none",fontSize:16,margin:0,color:"white"}, pressOpacity:100,pressColor:"black",  }}  >
+  tabBarOptions={{
+    bounces:true,
+    showIcon:true,
+    tabStyle:{backgroundColor:"#E63946",height:50,padding:10,opacity:0.7,  },
+    labelStyle:{textTransform:"none",fontSize:16,margin:0,color:"white"}, 
+    pressOpacity:100,
+    pressColor:"black",  }}  >
         <BottomTab.Screen 
         name="Search" 
         component={Btab1} 

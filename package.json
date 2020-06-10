@@ -1,6 +1,6 @@
 {
   "name": "KnowWhatYouEat",
-  "version": "0.0.1",
+  "version": "2.0.2",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -16,8 +16,6 @@
     "@react-native-community/masked-view": "^0.1.10",
     "@react-native-firebase/analytics": "^7.1.3",
     "@react-native-firebase/app": "^7.2.0",
-    "@react-native-firebase/auth": "^8.0.4",
-    "@react-native-firebase/firestore": "^7.1.5",
     "@react-native-firebase/ml-vision": "^7.1.3",
     "@react-navigation/drawer": "^5.8.1",
     "@react-navigation/material-top-tabs": "^5.2.9",
@@ -37,10 +35,7 @@
     "react-native-tab-view": "^2.14.2",
     "react-native-vector-icons": "^6.6.0",
     "react-navigation": "^4.3.9",
-    "react-redux": "^7.2.0",
     "react.dom": "^1.0.1",
-    "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0",
     "roboto-font": "^0.1.0"
   },
   "devDependencies": {

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import {View,Text,StyleSheet,ScrollView} from 'react-native';
 import {Card,Overlay} from 'react-native-elements';
-import functionclass from '../FoodAdditives/AdditiveFunctions.json';
+import functionclass from '../FoodAdditives/AdditiveFunctions';
 
 
 export default function MyCustomcard(props){
     const [v,nv]  = useState(true)
-    console.log(props.strvalue.length,"props")
     return(
       props.strvalue.length==0 && props.caller=="scanner" && props.count==true ?
       (
@@ -24,7 +23,6 @@ export default function MyCustomcard(props){
                     <View style={{padding:5}}>
                       {
                     value.map((its)=>{
-                      console.log(its)
                       let value = functionclass.items.find((x)=>x["class"] == its.trim())
                       return(
                       value?<>

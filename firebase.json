@@ -1,6 +1,7 @@
 {
     "react-native": {
       "ml_vision_ocr_model": true,
+      "admob_android_app_id": "ca-app-pub-5995947460101393~9166247961",
       "analytics_auto_collection_enabled": true
     }
 }

@@ -143,6 +143,9 @@ android {
             include "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
         }
     }
+    dexOptions {
+       javaMaxHeapSize "4g"
+    }
     signingConfigs {
         debug {
             storeFile file('debug.keystore')
@@ -151,11 +154,11 @@ android {
             keyPassword 'android'
         }
         release {
-        if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
-            storeFile file(MYAPP_RELEASE_STORE_FILE)
-            storePassword MYAPP_RELEASE_STORE_PASSWORD
-            keyAlias MYAPP_RELEASE_KEY_ALIAS
-            keyPassword MYAPP_RELEASE_KEY_PASSWORD
+        if (project.hasProperty('my_app.keystore')) {
+            storeFile file("my_app.keystore")
+            storePassword "kamerish"
+            keyAlias "my_app_alias.keystore"
+            keyPassword "kamerish"
         }
     }
     }
@@ -204,6 +207,8 @@ dependencies {
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+    
+    compile 'com.facebook.fresco:animated-gif:2.0.0'
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
       exclude group:'com.facebook.fbjni'

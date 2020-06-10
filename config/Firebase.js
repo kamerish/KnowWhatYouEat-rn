@@ -1,6 +1,4 @@
 import firebase from '@react-native-firebase/app'
-import auth from '@react-native-firebase/auth'
-import firestore from '@react-native-firebase/firestore';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDx3gWsxYoguZd20R6fcgkXl1zIfpWKNmo",
@@ -15,10 +13,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 let Firebase = firebase.initializeApp(firebaseConfig)
-export const authenication = auth();
-export const db = firestore()
-
-// avoid deprecated warnings
 
 
 export default Firebase

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet,TouchableOpacity} from 'react-native';
 import {
   createDrawerNavigator,
   DrawerItem,
@@ -7,7 +7,6 @@ import {
   DrawerContentScrollView,
 } from '@react-navigation/drawer';
 import Dtab1 from '../screens/contentscreens/Dtab1';
-import Dtab2 from '../screens/contentscreens/Dtab2';
 import {Divider} from 'react-native-paper'
 import LinearGradient from 'react-native-linear-gradient'
 
@@ -19,12 +18,15 @@ function MycustomDrawer(props) {
       <LinearGradient
         start={{x: 0.001, y: 0.1}}
         end={{x: 0.002, y: 2.5}}
-        locations={[0, 0.5, 1]}
+        locations={[0, 0.5]}
         colors={['#A8DADC','#E63946']}
         style={styles.linearGradient}>
             <Text style={styles.titletext}>KnowWhatYouEat</Text>
             <Divider style={{borderWidth:StyleSheet.hairlineWidth,width:"85%",alignSelf:"center"}}/>
-            <DrawerItemList {...props} labelStyle={{marginVertical:5,marginLeft:10}} />
+            <DrawerItemList {...props} labelStyle={{marginVertical:5,marginLeft:10,fontSize:16}} />
+            <TouchableOpacity>
+
+            </TouchableOpacity>
             <View style={{justifyContent:"flex-end",flex:1,margin:10}}>
               
               <Text style={{fontSize:12,color:"white"}}> 
@@ -55,14 +57,10 @@ export default function Drawernavi() {
       drawerType={'back'}
       drawerContent={(props) => <MycustomDrawer {...props} />}
       drawerStyle={{justifyContent: 'space-around'}} 
-      edgeWidth={100}>
+      edgeWidth={50}>
       <Drawer.Screen
         name="Home"
         component={Dtab1}
-      />
-      <Drawer.Screen 
-      name="Profile" 
-      component={Dtab2} 
       />
       </Drawer.Navigator>
 
@@ -80,10 +78,12 @@ const styles = StyleSheet.create({
     marginBottom:30,
     color:"#E63946",
     fontSize:24,
-    alignSelf:"center"
+    alignSelf:"center",
+    opacity:0.8
   },
   linearGradient: {
-    flex:1
+    flex:1,
+    opacity:0.9
   },
   buttonText: {
     fontSize: 18,

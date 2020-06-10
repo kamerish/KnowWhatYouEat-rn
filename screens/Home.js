@@ -1,9 +1,9 @@
 import React from 'react'
 import { View, Text, StyleSheet, Button } from 'react-native'
-import { connect } from 'react-redux'
-
 import Navi from '../navigation/DrawerNavigator';
 import { NavigationContainer } from '@react-navigation/native';
+
+
 class Profile extends React.Component {
 	render() {
 		return (
@@ -23,13 +23,6 @@ const styles = StyleSheet.create({
 	}
 })
 
-const mapStateToProps = state => {
-	return {
-		user: state.user
-	}
-}
-const mapDispatchToProps = dispatch => {
-	return bindActionCreators({ updateEmail, updatePassword, login, getUser ,googleupdate }, dispatch)
-}
 
-export default connect(mapStateToProps)(Profile)
+
+export default Profile
